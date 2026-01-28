@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Answer Checker - Smart Learning Assistant</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="logo">
+          <span class="logo-icon">🤖</span>
+          <h1>AI Answer Checker</h1>
+        </div>
+        <p class="tagline">
+          Smart Learning Assistant - Check Answers, Ask Questions, Get Feedback
+        </p>
+      </header>
+
+      <!-- Mode Selector -->
+      <section class="mode-section">
+        <h2 class="section-title">Choose Your Mode</h2>
+        <div class="mode-selector">
+          <button class="mode-btn active" data-mode="image">
+            <span class="mode-icon">📸</span>
+            <span class="mode-text">Image Only</span>
+          </button>
+          <button class="mode-btn" data-mode="prompt">
+            <span class="mode-icon">💬</span>
+            <span class="mode-text">Prompt Only</span>
+          </button>
+          <button class="mode-btn" data-mode="both">
+            <span class="mode-icon">🎯</span>
+            <span class="mode-text">Both</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Info Box -->
+      <div class="info-box" id="infoBox">
+        <div class="info-icon">ℹ️</div>
+        <div class="info-content">
+          <strong>Image Only Mode:</strong> Upload an image with your answer and
+          get automatic checking and detailed feedback.
+        </div>
+      </div>
+
+      <!-- Upload Section -->
+      <section class="upload-section" id="uploadSection">
+        <div class="upload-card" id="dropZone">
+          <div class="upload-icon">📁</div>
+          <label for="imageInput" class="file-label">
+            Choose Image or Drag & Drop
+          </label>
+          <input type="file" id="imageInput" accept="image/*" hidden />
+          <p class="upload-hint">Supported formats: JPG, PNG, GIF (Max 10MB)</p>
+        </div>
+
+        <!-- Image Preview -->
+        <div class="preview" id="preview"></div>
+      </section>
+
+      <!-- Prompt Section -->
+      <section class="prompt-section" id="promptSection">
+        <label for="promptInput" class="prompt-label">
+          <span id="promptLabelText">Custom Instructions (Optional):</span>
+          <span class="prompt-hint">Be specific for better results</span>
+        </label>
+        <textarea
+          id="promptInput"
+          class="prompt-textarea"
+          placeholder="Examples:
+• Check this math solution step by step
+• What is photosynthesis?
+• Explain where I went wrong
+• Review grammar and spelling..."
+          rows="5"
+        ></textarea>
+
+        <!-- Quick Prompts -->
+        <div class="quick-prompts" id="quickPrompts">
+          <span class="quick-prompts-title">Quick prompts:</span>
+          <button
+            class="quick-prompt-btn"
+            data-prompt="Check this answer and explain if it's correct"
+          >
+            ✓ Check Answer
+          </button>
+          <button
+            class="quick-prompt-btn"
+            data-prompt="Review this for grammar and spelling mistakes"
+          >
+            📝 Grammar Check
+          </button>
+          <button
+            class="quick-prompt-btn"
+            data-prompt="Explain this step by step"
+          >
+            📚 Step by Step
+          </button>
+        </div>
+      </section>
+
+      <!-- Submit Button -->
+      <button class="submit-btn" id="submitBtn" disabled>
+        <span class="btn-icon">🚀</span>
+        <span class="btn-text">Analyze Now</span>
+      </button>
+
+      <!-- Loading State -->
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p class="loading-text">Analyzing your submission...</p>
+        <p class="loading-subtext">This may take a few seconds</p>
+      </div>
+
+      <!-- Error Message -->
+      <div class="error-box" id="errorBox">
+        <div class="error-icon">⚠️</div>
+        <div class="error-message" id="errorMessage"></div>
+      </div>
+
+      <!-- Results Section -->
+      <section class="results" id="results">
+        <h2 class="results-title">📊 Analysis Results</h2>
+        <div class="results-content" id="resultsContent"></div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>&copy; 2024 AI Answer Checker. Powered by Google Gemini AI</p>
+      </footer>
+    </div>
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>
