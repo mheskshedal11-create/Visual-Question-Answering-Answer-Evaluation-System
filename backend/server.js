@@ -3,11 +3,14 @@ import express from 'express';
 import 'dotenv/config';
 import morgan from 'morgan';
 import helmet from 'helmet';
+import cookieParser from 'cookie-parser';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import connection from './db/config.js';
 import globalError from './middleware/globalError.js';
 import checkRouter from './router/check.route.js';
+import userRouter from './router/user.route.js';
+
 
 // ES Module fix for __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -27,6 +30,7 @@ app.use(morgan('dev'));
 app.use(helmet({
     contentSecurityPolicy: false, // Allow inline scripts for development
 }));
+app.use(cookieParser())
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -36,6 +40,7 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.use('/user', userRouter)
 app.use('/check', checkRouter);
 
 // Global error handler
